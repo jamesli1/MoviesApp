@@ -114,6 +114,38 @@ dependencies {
     // Testing dependencies
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockk)
+
+    //retrofit
+    implementation(libs.converter.gson)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.compose)
+    androidTestImplementation(libs.androidx.navigation.testing)
+
+    //View model
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    //coil
+    implementation(libs.coil.compose)
+
+    //Paging3
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+    testImplementation(libs.androidx.paging.common.ktx)
+
+    // Testing dependencies
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockk)
 }
 
 kapt {
