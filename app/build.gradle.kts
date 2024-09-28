@@ -75,9 +75,6 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-//
-//    //fragment
-//    implementation(libs.androidx.fragment.ktx)
 
     //Hilt
     implementation(libs.hilt.android)
