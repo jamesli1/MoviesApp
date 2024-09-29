@@ -50,8 +50,8 @@ To run the app locally:
 3. Build and run the project on your Android device or emulator.
 
 ## Screenshots
-<img width="210" alt="1" src="https://github.com/user-attachments/assets/bab9e202-9775-4ccf-8679-92cefa1492f6">
-<img width="210" alt="2" src="https://github.com/user-attachments/assets/045396f6-21ad-4576-98d6-44d2c5df491e">
-<img width="210" alt="3" src="https://github.com/user-attachments/assets/20eedc3c-2dc2-4765-a01b-9770cbf2c401">
-<img width="210" alt="4" src="https://github.com/user-attachments/assets/130fa7fb-9bd3-4a0f-a23b-0bf48ff7f1f4">
+<img width="250" alt="1" src="https://github.com/user-attachments/assets/bab9e202-9775-4ccf-8679-92cefa1492f6"> &nbsp;&nbsp;&nbsp;
+<img width="250" alt="3" src="https://github.com/user-attachments/assets/20eedc3c-2dc2-4765-a01b-9770cbf2c401"> <br>
+<img width="250" alt="2" src="https://github.com/user-attachments/assets/045396f6-21ad-4576-98d6-44d2c5df491e"> &nbsp;&nbsp;&nbsp;
+<img width="250" alt="4" src="https://github.com/user-attachments/assets/130fa7fb-9bd3-4a0f-a23b-0bf48ff7f1f4"> <br>
 
