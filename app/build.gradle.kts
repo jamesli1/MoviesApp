@@ -111,6 +111,12 @@ dependencies {
     implementation(libs.androidx.paging.compose)
     testImplementation(libs.androidx.paging.common.ktx)
 
+    //Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    kapt(libs.androidx.room.compiler)
+
     // Testing dependencies
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockk)

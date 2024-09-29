@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -72,10 +74,11 @@ fun MovieDetailsScreen(movieId: Int) {
 
 @Composable
 fun MovieDetail(details: MovieDetails) {
+    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
+            .fillMaxSize()
+            .verticalScroll(scrollState),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     )
@@ -86,7 +89,7 @@ fun MovieDetail(details: MovieDetails) {
                 .crossfade(500)
                 .build(),
             contentDescription = null,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().height(250.dp),
             contentScale = ContentScale.Fit,
         )
         Spacer(modifier = Modifier.height(32.dp))
@@ -116,7 +119,7 @@ fun MovieDetail(details: MovieDetails) {
 
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.weight(1f) // Take the remaining space
+                modifier = Modifier.weight(1f)
             ) {
                 InfoItem(stringResource(R.string.language), details.original_language)
                 InfoItem(stringResource(R.string.release_date), details.release_date)

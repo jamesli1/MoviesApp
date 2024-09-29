@@ -25,6 +25,7 @@ mockk = "1.12.4"
 navigationTesting = "2.8.1"
 pagingRuntime = "3.3.2"
 retrofit = "2.9.0"
+roomRuntime = "2.6.1"
 tracing = "1.2.0"
 uiTestManifest = "1.7.2"
 
@@ -45,6 +46,10 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 androidx-paging-common-ktx = { module = "androidx.paging:paging-common-ktx", version.ref = "pagingRuntime" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingRuntime" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "pagingRuntime" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-tracing = { module = "androidx.tracing:tracing", version.ref = "tracing" }
 androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "uiTestManifest" }
 androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "uiTestManifest" }

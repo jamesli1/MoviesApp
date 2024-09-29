@@ -1,26 +1,19 @@
 package com.example.moviesapp.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "movie_details")
 data class MovieDetails(
-    val adult: Boolean,
-    val backdrop_path: String,
-    val belongs_to_collection: Any,
-    val budget: Int,
-    val homepage: String,
+    @PrimaryKey
     val id: Int,
-    val imdb_id: String,
-    val origin_country: List<String>,
+    val title: String,
     val original_language: String,
-    val original_title: String,
     val overview: String,
     val popularity: Double,
     val poster_path: String,
     val release_date: String,
-    val revenue: Int,
     val runtime: Int,
     val status: String,
-    val tagline: String,
-    val title: String,
-    val video: Boolean,
-    val vote_average: Double,
-    val vote_count: Int
+    val backdrop_path: String
 )
