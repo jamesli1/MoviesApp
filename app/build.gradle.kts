@@ -120,6 +120,7 @@ dependencies {
     // Testing dependencies
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.mockwebserver)
 }
 
 kapt {
