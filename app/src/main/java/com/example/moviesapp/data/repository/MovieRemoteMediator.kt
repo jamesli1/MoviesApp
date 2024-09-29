@@ -4,11 +4,13 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import androidx.room.withTransaction
 import com.example.moviesapp.data.api.ApiService
 import com.example.moviesapp.data.db.MovieDatabase
 import com.example.moviesapp.data.model.Movie
 import com.example.moviesapp.data.model.MovieRemoteKeys
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @ExperimentalPagingApi
@@ -38,31 +40,27 @@ class MovieRemoteMediator @Inject constructor(
                 }
             }
 
-            val response = apiService.getMovies(page)
-            val endOfPaginationReached = response.results.isEmpty()
-            database.withTransaction {
-                if (loadType == LoadType.REFRESH) {
-                    database.movieRemoteKeysDao().deleteAllRemoteKeys()
-                }
-
-                val prevPage = if (page == 1) null else page - 1
-                val nextPage = if (endOfPaginationReached) null else page + 1
-
-                val keys = response.results.map { movie ->
-                    MovieRemoteKeys(
-                        id = movie.id,
-                        prevPage = prevPage,
-                        nextPage = nextPage
-                    )
-                }
-
-                database.movieRemoteKeysDao().addAllRemoteKeys(remoteKeys = keys)
-                database.movieDao().insertAll(movie = response.results)
+            val apiResponse = apiService.getMovies(page)
+            val results = apiResponse.results
+            val endOfPaginationReached = results.isEmpty()
+            val prevPage = if (page > 1) page - 1 else null
+            val nextPage = if (endOfPaginationReached) null else page + 1
+            val remoteKeys = results.map {
+                MovieRemoteKeys(
+                    id = it.id,
+                    prevPage = prevPage,
+                    nextPage = nextPage
+                )
+            }
+            CoroutineScope(Dispatchers.IO).launch {
+                database.movieRemoteKeysDao().deleteAllRemoteKeys()
+                database.movieRemoteKeysDao().addAllRemoteKeys(remoteKeys = remoteKeys)
+                database.movieDao().insertAll(movie = results)
             }
 
             MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (e: Exception) {
-            return MediatorResult.Error(e)
+            MediatorResult.Error(e)
         }
     }
 
