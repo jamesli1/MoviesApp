@@ -12,7 +12,7 @@ Jetpack Compose for the UI and backed by a RESTful API for fetching movie data.
   - [Pre-requisites](#pre-requisites)
   - [Installation](#installation)
 - [Screenshots](#screenshots)
-- 
+
 ### Features
 
 - **Browse Popular Movies**: See the latest trending and popular movies.
