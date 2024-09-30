@@ -1,5 +1,6 @@
 package com.example.moviesapp.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -47,7 +48,8 @@ class MovieViewModel @Inject constructor(
                 val response = getMoviesUseCase().flow.cachedIn(viewModelScope)
                 _moviesListResponse.value = UiState.Success(response)
             } catch (e: Exception) {
-                _moviesListResponse.value = UiState.Error(e.message)
+                Log.e("MovieViewModel", "Error loading movies: ${e.message}", e)
+                _moviesListResponse.value = UiState.Error("Failed to load movies. Please try again.")
             }
         }
     }
@@ -59,7 +61,8 @@ class MovieViewModel @Inject constructor(
                 val response = getMovieDetailsUseCase(id)
                 _movieDetailsResponse.value = UiState.Success(response)
             } catch (e: Exception) {
-                _movieDetailsResponse.value = UiState.Error(e.message)
+                Log.e("MovieViewModel", "Error loading movies: ${e.message}", e)
+                _movieDetailsResponse.value = UiState.Error("Failed to fetch movie details. Please try again.")
             }
         }
     }

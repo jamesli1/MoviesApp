@@ -23,9 +23,8 @@ class MovieRepositoryImpl @OptIn(ExperimentalPagingApi::class)
     override suspend fun getMovies(): Pager<Int, Movie> {
         return Pager(
             config = PagingConfig(pageSize = 20),
-            remoteMediator = movieRemoteMediator){
-            movieDao.getAll()
-        }
+            remoteMediator = movieRemoteMediator,
+            pagingSourceFactory = { movieDao.getAll() })
     }
 
     override suspend fun getMovieDetails(id: Int): MovieDetails {
